@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Tilt+Prism&display=swap');
+
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    position: relative; /* z-index only works on positioned elements (position:absolute, position:relative, or position:fixed) */
+    z-index: 10; /* Adjust this value as needed */
+    width: 10px; /* Adjust the width of the scrollbar */
+    height: 10px; /* Adjust the height for horizontal scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    z-index: 10;
+    background: rgba(128, 128, 128, 0.5); /* Light grey color, semi-transparent */
+    border-radius: 10px; /* Rounded edges */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    z-index: 10;
+    background-color: #000000bb;/
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    z-index: 10;
+    background: rgba(0, 0, 0, 0); /* Very subtle track color */
+    border-radius: 10px; /* Rounded edges for the track as well */
+}
+
+/* For Webkit browsers */
+main::-webkit-scrollbar {
+    display: none; /* This will hide the scrollbar in Webkit browsers */
+}
+
+/* For Firefox */
+main {
+    scrollbar-width: none; /* This will hide the scrollbar in Firefox */
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;       /* body is a flex container */
+    flex-direction: column;  /* flex children (main, header, footer) stack vertically */
+    height: 100vh;  /* take up the full height of the viewport */
+}
+
+p,h1,h2,h3,a,button,img,div,main,body{
+    font-family: 'Heebo', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    overflow-x: hidden;
+}
+main {
+    flex: 1;  /* this makes main content stretch and take any available space, effectively pushing footer to the bottom */
+    background-color: #D9D9D9;
+    
+}
+
+main, .content {
+    flex: 1; 
+    background-color: #D9D9D9;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+    background-color: #9BF78C;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 60px;
+}
+
+header {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    background-color: #9BF78C;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 60px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.logo {
+    width: 100px; 
+}
+
+.nav {
+    display: flex;
+    gap: 20px; 
+}
+
+.nav a, .login-btn {
+    text-decoration: none;
+}
+
+
+
+.logo-footer {
+    margin-right: 20px; 
+    height: 40px;
+    width: auto;
+}
+
+.address, .contact {
+    margin: 0 5px; 
+    font-size: 0.9em; 
+}
+
+.address p, .contact p {
+    margin: 2px 0; 
+}
+
+.listing {
+    background-color: #FFF;
+    border: 2px solid black;
+    display: flex;
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    gap: 20px;
+    width: 100%;
+}
+
+
+
+.listing .main-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    max-width: 350px;
+}
+
+.listing .more-images {
+    display: flex;
+    gap: 5px;
+    border: 2px solid #000;
+    padding: 5px;
+    align-items: center; 
+    /* width: 100%; */
+    justify-content: space-between;
+    min-width: 200px;  /* Adjust this value based on your needs */
+    
+}
+
+
+.listing .more-images img {
+    width: calc(33.33% - 5px);  /* Subtracting the gap */
+    height: 80px;
+    object-fit: cover;
+}
+
+
+
+.arrow-btn {
+    /* ... other properties ... */
+    overflow: visible;  /* Adjust overflow to visible */
+}
+
+.arrow-btn {
+    display: flex;
+    align-items: center;  /* Center the arrow vertically */
+    justify-content: center;  /* Center the arrow horizontally */
+    width: 40px;  /* Adjust width as needed */
+    height: 80px;  /* Match the height of the images */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 30px;  /* Adjusted font size for bigger arrow */
+    font-weight: bold;    
+    color: #000;
+    padding-right: 10px; /* Padding to move arrow away from the border */
+    margin-left: -10px; /* Compensate for the added padding */
+}
+
+.listing .expand-images {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.listing .expand-images:hover {
+    background-color: #0056b3;
+}
+
+.listing .listing-info h2 {
+    text-align: center;
+    font-size: 0.9em; /* Adjust size if necessary */
+    margin-bottom: 8%;  /* Reduced space below title */
+}
+
+.listing .listing-info p {
+    text-align: center  ;
+    margin-bottom: 15px;  /* Less space before the price */
+    font-size: smaller;
+}
+
+
+.listing .listing-info {
+    max-width: 55%;
+    flex-grow: 1;
+    position: relative;
+}
+
+.price-info {
+    display: flex;
+    align-items: center; /* This will vertically center the child elements */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 2px solid black;
+}
+
+.listing .listing-price {
+    display: flex; 
+    align-items: center; /* Vertically center the text */
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.2em;
+    border-right: 2px solid black;  /* Solid line to the right of the price */
+    padding-right: 10px;  /* Padding to give space between the price and the line */
+    padding-left: 5px;  /* Padding to the left, makes it look more even */
+    line-height: 1; /* Adjust line height to tighten up space around text */
+}
+
+.listing .more-info {
+    background-color: #FFF;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none; 
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    line-height: 1; /* Adjust line height to tighten up space around text */
+}
+
+.listing .more-info:hover {
+    background-color: #f1f1f1;
+}
+
+/* Login Modal Styling */
+.login-modal {
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.login-modal-content {
+    background-color: #FFF;
+    margin: 8% auto;
+    padding: 20px;
+    width: 50%;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;  /* spacing between inputs */
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    background-color: #FFF;
+    border: 1px solid black;
+    padding: 10px;
+    flex: 1; /* equally divide space */
+    text-align: center;
+}
+
+.login-action {
+    display: inline-block;
+    background-color: #FFF;
+    border: 1px solid black;
+    padding: 10px 20px;
+    text-decoration: none; /* Remove underline from link */
+    color: black;
+}
+
+.close-btn {
+    cursor: pointer;
+    float: right;
+    font-size: 28px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-button {
+    background-color: #FFF;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-button:hover {
+    background-color: #f5f5f5;
+}
+
+.page-button.dots, .page-button.last {
+    width: auto;
+    padding: 0 10px;
+}
+
+.filter-button {
+    display: flex;
+    background-color: #FFF;
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    max-width: 3%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.bars {
+    margin-left: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;  /* This value ensures the modal is above most other elements */
+}
+
+.modal-content {
+    background-color: #FFF;
+    margin: 8% auto;
+    padding: 20px;
+    width: 50%;
+    z-index: 1001;  /* This value ensures the content is above the modal background */
+}
+
+
+.close-btn {
+    cursor: pointer;
+    float: right;
+    font-size: 28px;
+}
+
+
+.filterhouder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+}
+
+.ligging{
+    display: flex;
+    flex-direction: column;
+}
+.eigenschappen{
+    display: flex;
+    flex-direction: column;
+}
+
+.overig{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-button {
+    background-color: #FFF;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-button:hover {
+    background-color: #f5f5f5;
+}
+
+.page-button.dots, .page-button.last {
+    width: auto;
+    padding: 0 10px;
+}
+
+
+.main-img{
+border: 1px solid black;
+max-width: 450px;
+max-height: 250px;        
+}
+
+.detail-listing-images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: fit-content;
+    height: fit-content;
+    padding: 3px;
+}
+
+.detail-listing-images img{
+    width: 120px;
+    height: 80px;
+    padding-inline: 10px;
+}
+
+.detail-price-info{
+    display: flex;
+    border-right: 2px solid black;
+    width: fit-content;
+    padding: 3px;
+}
+
+.detail-text{
+    
+}
+
+.neem-contact {
+    display: flex;
+    flex-direction: row-reverse;
+    border: 2px solid;
+    width: fit-content;
+    position: relative;
+    text-align: center;
+}
+
+.filter-lists{
+    display: flex;
+    flex-direction: row;
+    gap: 15%;
+    width: 50%;
+}
+
+
+.filter-and-button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.img-and-text{
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+}
+
+.nav a{
+color: black;
+}
+.nav a:hover{
+color: rgb(236, 113, 43);
+}
+
+.user-btn:hover{
+    color: rgb(236, 113, 43);
+}
+
+.remove-listing{
+    background-color: #FFF;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid 1px black;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.user-management {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .user-form, .user-delete {
+    border: 1px solid black;
+    padding: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 7vw;
+    gap: 10px;
+  }
+  
+  .user-list {
+    border-collapse: collapse;
+    width: 100%;
+    height: fit-content;
+    overflow-y: auto;
+  }
+  
+  .user-list, .user-list th, .user-list td {
+    border: 1px solid black;
+  }
+  
+  .user-list th, .user-list td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .user-list th {
+    background-color: #f2f2f2;
+  }
+  
+ .user-management button {
+    border: 1px solid white;
+    padding: 10px 20px;
+    cursor: pointer;
+
+  }
+  
+  .user-management button:hover {
+    border: 1px solid #000;
+  }
+  
+  .makerem{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
